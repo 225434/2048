@@ -1,0 +1,53 @@
+{
+  "app": {
+    "bundleName": "com.caojing.harmonyfrist",
+    "vendor": "caojing",
+    "version": {
+      "code": 1,
+      "name": "1.0"
+    },
+    "apiVersion": {
+      "compatible": 3,
+      "target": 3
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.caojing.harmonyfrist",
+    "name": ".MyApplication",
+    "mainAbility": "com.caojing.harmonyfrist.MainAbility",
+    "reqCapabilities": [
+      "video_support"
+    ],
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": true
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "portrait",
+        "name": "com.caojing.harmonyfrist.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:mainability_description",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ]
+  }
+}
