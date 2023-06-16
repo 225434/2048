@@ -28,7 +28,7 @@ public class MainAbilitySlice extends AbilitySlice {
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
-//        setUIContent(ResourceTable.Layout_main_layout);
+
         //设置根布局，全屏铺满，剧中，背景等
         LayoutConfig configParent = new LayoutConfig(LayoutConfig.MATCH_PARENT, LayoutConfig.MATCH_PARENT);
         LayoutConfig configContent = new LayoutConfig(LayoutConfig.MATCH_CONTENT, LayoutConfig.MATCH_CONTENT);

@@ -1,8 +1,6 @@
 package com.caojing.Game2048.view;
 
 import ohos.agp.colors.RgbColor;
-import ohos.agp.components.AttrSet;
-import ohos.agp.components.Component;
 import ohos.agp.components.StackLayout;
 import ohos.agp.components.Text;
 import ohos.agp.components.element.ShapeElement;
@@ -21,16 +19,6 @@ public class CardView extends StackLayout {
 
     public CardView(Context context) {
         super(context);
-        initView();
-    }
-
-    public CardView(Context context, AttrSet attrSet) {
-        super(context, attrSet);
-        initView();
-    }
-
-    public CardView(Context context, AttrSet attrSet, String styleName) {
-        super(context, attrSet, styleName);
         initView();
     }
 
@@ -55,7 +43,6 @@ public class CardView extends StackLayout {
 
     /**
      * 设置卡片文字和背景颜色
-     * @param num
      */
     void setTextColor(int num){
         ShapeElement element = new ShapeElement();
@@ -114,7 +101,6 @@ public class CardView extends StackLayout {
 
     /**
      * 获得卡片数字
-     * @return
      */
     public int getNum() {
         return num;
@@ -134,14 +120,9 @@ public class CardView extends StackLayout {
 
     /**
      * 判断卡片是否相同
-     * @param card
-     * @return
      */
     public boolean equals(CardView card) {
         return getNum() == card.getNum();
     }
 
-    public Component getLabel() {
-        return lable;
-    }
 }

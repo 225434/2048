@@ -3,7 +3,6 @@ package com.caojing.Game2048.view;
 import com.caojing.Game2048.entity.MPoint;
 import com.caojing.Game2048.slice.MainAbilitySlice;
 import ohos.agp.colors.RgbColor;
-import ohos.agp.components.AttrSet;
 import ohos.agp.components.Component;
 import ohos.agp.components.TableLayout;
 import ohos.agp.components.element.ShapeElement;
@@ -23,13 +22,13 @@ public class GameView extends TableLayout {
     boolean isCanRetract = false;
 
     //记录卡片view的二维数组
-    private CardView[][] cardMap = new CardView[4][4];
+    private final CardView[][] cardMap = new CardView[4][4];
 
     //记录上一步卡片位置的二维数组
-    private int[][] retractMap = new int[4][4];
+    private final int[][] retractMap = new int[4][4];
 
     //记录所有空点的集合，随机数只能添加在空点内
-    private List<MPoint> emptyPoints = new ArrayList<>();
+    private final List<MPoint> emptyPoints = new ArrayList<>();
 
     private int score = 0;
     float volume = 1.0f; //音频音量
@@ -37,16 +36,6 @@ public class GameView extends TableLayout {
 
     public GameView(Context context) {
         super(context);
-        initGameView();
-    }
-
-    public GameView(Context context, AttrSet attrSet) {
-        super(context, attrSet);
-        initGameView();
-    }
-
-    public GameView(Context context, AttrSet attrSet, String styleName) {
-        super(context, attrSet, styleName);
         initGameView();
     }
 
@@ -76,7 +65,8 @@ public class GameView extends TableLayout {
 
         //设置触摸监听事件
         setTouchEventListener(new TouchEventListener() {
-            private float starX, starY, offsetX, offsetY;
+            private float starX;
+            private float starY;
 
             @Override
             public boolean onTouchEvent(Component component, TouchEvent touchEvent) {
@@ -87,8 +77,8 @@ public class GameView extends TableLayout {
                         starY = point.getY(); //记录手指按下的y点坐标
                         break;
                     case TouchEvent.PRIMARY_POINT_UP:
-                        offsetX = point.getX() - starX;//横向滑动距离
-                        offsetY = point.getY() - starY;//纵向滑动距离
+                        float offsetX = point.getX() - starX;//横向滑动距离
+                        float offsetY = point.getY() - starY;//纵向滑动距离
                         if (Math.abs(offsetX) > Math.abs(offsetY)) {
                             if (offsetX < -5) {
                                 //左滑监听
